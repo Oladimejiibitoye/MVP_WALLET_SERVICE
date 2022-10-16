@@ -13,7 +13,7 @@ export const AppDataSource = new DataSource({
     synchronize: false,
     logging: false,
     entities: [
-      __dirname + '/**/*.entity{.ts,.js}'
+      User
      ],
      migrations: [
       'build/migration/*.js'
@@ -21,3 +21,4 @@ export const AppDataSource = new DataSource({
      subscribers: [],
 
 })
+
