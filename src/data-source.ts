@@ -1,13 +1,13 @@
 import "reflect-metadata"
 import { DataSource } from "typeorm"
-import { dbName, dbPassword, dbUsername } from "./common/config/config"
+import { dbHost, dbName, dbPassword, dbUsername } from "./common/config/config"
 import { Account } from "./entity/Account"
 import { Transaction } from "./entity/Transaction"
 import { User } from "./entity/User"
 
 export const AppDataSource = new DataSource({
     type: "mysql",
-    host: "localhost",
+    host: dbHost,
     port: 3306,
     username: dbUsername,
     password: dbPassword,
