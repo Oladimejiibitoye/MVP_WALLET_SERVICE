@@ -131,6 +131,7 @@ class AuthController {
         return;
       }
       //save
+      user.hashPassword();
       userRepository.save(user);
 
       res.status(201).send({

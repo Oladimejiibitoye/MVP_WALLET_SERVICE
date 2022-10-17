@@ -1,4 +1,3 @@
-import { getRepository } from "typeorm"
 import { NextFunction, Request, Response } from "express"
 import { User } from "../entity/User";
 import { validate } from "class-validator";
@@ -87,8 +86,8 @@ class UserController{
          //Get the ID from the url
       const id = req.params.id;
     
-      const userRepository = getRepository(User);
-      const user: User = await userRepository.findOneOrFail(id);
+      const userRepository = AppDataSource.getRepository(User);
+      const user: User = await userRepository.findOneOrFail({ where: { id } });
       if(!user){
         return res.status(404).send({
             message: "User not found"});

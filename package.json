@@ -10,7 +10,7 @@
       "prod": "tsc && node ./build/app.js",
       "tsc": "tsc",
       "typeorm": "typeorm-ts-node-commonjs",
-      "migration": "npm run tsc && npm run typeorm migration:run -d build/data-source.js",
+      "migration": "ts-node ./node_modules/typeorm/cli.js migration:run -d build/data-source.js",
       "add-migration": "typeorm migration:generate src/migration/migration -d build/data-source.js",
       "new-migration": "typeorm migration:create src/migration/migration",
       "revert-migration": "typeorm migration:revert",

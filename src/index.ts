@@ -9,6 +9,7 @@ import { port } from "./common/config/config";
 //Access the routes 
 import auth from "./routes/auth";
 import user from "./routes/user";
+import account from "./routes/account";
 
 
 
@@ -32,7 +33,8 @@ AppDataSource.initialize().then(async () => {
 
     //Set all routes from routes folder
     app.use("/api/auth", auth);
-    app.use("/api/users", user)
+    app.use("/api/users", user);
+    app.use("/api/account", account)
     
 
 

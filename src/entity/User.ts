@@ -1,7 +1,9 @@
-import { Entity, Column, BeforeInsert } from "typeorm"
+import { Entity, Column, BeforeInsert, OneToOne, OneToMany } from "typeorm"
 import { SharedEntity } from "../common/model/sharedEntity";
 import * as bcrypt from "bcryptjs";
 import { Length, IsNotEmpty, IsEmail, IsAlphanumeric } from "class-validator";
+import { Account } from "./Account";
+import { Transaction } from "./Transaction";
 
 
 
@@ -23,6 +25,12 @@ export class User extends SharedEntity{
     @IsAlphanumeric()
     @Length(8, 20)
     password: string;
+
+    @OneToOne(() => Account, account => account.user)
+    account: Account
+
+    @OneToMany(() => Transaction, transactions => transactions.user )
+    transactions: Transaction[]
     
     @BeforeInsert()
     public setPassword() {
@@ -32,6 +40,10 @@ export class User extends SharedEntity{
 
     checkIfUnencryptedPasswordIsValid(unencryptedPassword: string) {
         return bcrypt.compareSync(unencryptedPassword, this.password);
+      }
+
+    hashPassword() {
+        this.password = bcrypt.hashSync(this.password, 8);
       }
 
 }
