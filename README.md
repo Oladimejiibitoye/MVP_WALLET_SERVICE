@@ -82,6 +82,7 @@ npm run prod
 
 ### Signup
 
+```sh
 {base_url}/api/auth/signup
 method: post
 json
@@ -90,9 +91,11 @@ json
 "email": "string",
 "password": "string"
 }
+```
 
 ### Signin
 
+```sh
 {base_url}/api/auth/login
 method: post
 json
@@ -100,9 +103,11 @@ json
 "email": "string",
 "password": "string"
 }
+```
 
 ### Change Password
 
+```sh
 {base_url}/api/auth/change-password
 method: patch
 Authorization - Bearer Token
@@ -111,19 +116,25 @@ json
 "oldPassword": "string",
 "password": "string"
 }
+```
 
 ### Get Users
 
+```sh
 {base_url}/api/users
 method: get
+```
 
 ### Get User
 
+```sh
 {base_url}/api/users/user
 Authorization - Bearer Token
+```
 
 ### Create Account
 
+```sh
 {base_url}/api/account/create
 method: post
 Authorization - Bearer Token
@@ -131,9 +142,11 @@ json
 {
 "bank_name": "string"
 }
+```
 
 ### Fund Account
 
+```sh
 {base_url}/api/account/fund/{id}
 method: post
 Authorization - Bearer Token
@@ -142,9 +155,11 @@ json
 {
 "amount": number
 }
+```
 
 ### Withdraw
 
+```sh
 {base_url}/api/account/withdraw/{id}
 method: post
 Authorization - Bearer Token
@@ -153,9 +168,11 @@ json
 {
 "amount": number
 }
+```
 
 ### Transfer
 
+```sh
 {base_url}/api/account/transfer/{id}
 method: post
 Authorization - Bearer Token
@@ -165,6 +182,7 @@ json
 "amount": number,
 "account_number": "string"
 }
+```
 
 ## Postman
 
